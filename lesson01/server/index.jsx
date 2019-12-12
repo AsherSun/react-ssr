@@ -2,7 +2,7 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import express from 'express';
 import {StaticRouter} from 'react-router-dom';
-import App from '../src/App.jsx';
+import App from '@/App.jsx';
 
 const app = express();
 
