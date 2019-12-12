@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import Index from './page/Index.jsx';
+import About from './page/About.jsx';
 
-function App(props) {
-  const [count, setCount] = useState(1);
+function App() {
   return (
-    <div>
-      <h1>Hi, {props.title}! {count}</h1>
-      <h2>美好的事情即将发生</h2>
-      <button onClick={() => setCount(count + 1)}>累加</button>
-    </div>
+    <>
+      <Route path="/" exact component={() => <Index title="无始大帝" />}></Route>
+      <Route path="/about" exact component={About}></Route>
+    </>
   );
 }
 
-export default <App title="遮天·无始大帝"/>;
+export default App;
