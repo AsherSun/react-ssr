@@ -5,7 +5,7 @@ function App(props) {
   return (
     <div>
       <h1>Hi, {props.title}! {count}</h1>
-      <h2>测试测试</h2>
+      <h2>美好的事情即将发生</h2>
       <button onClick={() => setCount(count + 1)}>累加</button>
     </div>
   );
