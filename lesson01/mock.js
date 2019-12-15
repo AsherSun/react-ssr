@@ -16,6 +16,20 @@ app.get('/api/course/list', (req, res) => {
       {name: 'java架构师', id: 4},
     ]
   })
+});
+
+app.get('/api/user/info', (req, res) => {
+  // 支持跨域调用
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE')
+  res.header('Content-Type', 'application/json;charset=utf-8')
+
+  res.json({
+    code: 0,
+    data: {
+      title: '我是title'
+    }
+  })
 })
 
 app.listen(9090, () => {

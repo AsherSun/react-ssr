@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import store from '@/store/store';
+import { BrowserRouter, Route } from 'react-router-dom';
+import {getClientStore} from '@/store/store';
 import {Provider} from 'react-redux';
-import App from '@/App';
+import routes from '@/App';
+import Header from '@/component/Header';
 
-const Page = <Provider store={store}>
+const Page = <Provider store={getClientStore()}>
   <BrowserRouter>
-    <App/>
+    {/* <App/> */}
+    <Header></Header>
+    { routes.map(route => <Route {...route} />)}
   </BrowserRouter>
 </Provider>
 
