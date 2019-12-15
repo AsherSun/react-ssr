@@ -3,6 +3,8 @@ import {renderToString} from 'react-dom/server';
 import express from 'express';
 import { StaticRouter } from 'react-router-dom';
 import App from '@/App';
+import store from '@/store/store';
+import {Provider} from 'react-redux';
 
 const app = express();
 
@@ -13,9 +15,11 @@ app.get('*', (req, res) => {
   // React 组件，解析成HTML
   // const content = renderToString(App);
   const content = renderToString(
-    <StaticRouter location={req.url}>
-      <App />
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={req.url}>
+        <App />
+      </StaticRouter>
+    </Provider>
   )
   res.send(`
     <html>
