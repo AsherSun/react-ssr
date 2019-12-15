@@ -12,6 +12,7 @@ export const getIndexList = server => {
     return Axios.get('http://localhost:9090/api/course/list').then(res => {
       const {list} = res.data;
       dispatch(changeList(list));
+      return list;
     });
   }
 }

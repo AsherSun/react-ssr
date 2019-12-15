@@ -12,6 +12,7 @@ export const getUserInfo = server => {
     return Axios.get('http://localhost:9090/api/user/info').then(res => {
       const {data} = res.data;
       dispatch(changeUserInfo(data));
+      return data;
     });
   }
 }

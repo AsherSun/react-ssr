@@ -10,6 +10,16 @@ import Header from '@/component/Header';
 const store = getServerStore();
 const app = express();
 
+const to = function (pro) {
+  return Promise((resolve, reject) => {
+    pro.then((data) => {
+      resolve(data)
+    }).catch(() => {
+      resolve();
+    })
+  })
+}
+
 app.use(express.static('public'))
 
 app.get('*', (req, res) => {
@@ -26,13 +36,14 @@ app.get('*', (req, res) => {
     }
     return match;
   })
-  Promise.all(promises).then( () => {
+  Promise.all(promises).then((data) => {
+    console.log('data', data);
     const content = renderToString(
       <Provider store={store}>
         <StaticRouter location={req.url}>
           <Header></Header>
           {/* <App /> */}
-          { routes.map(route => <Route {...route} />)}
+          { routes.map(route => route.title ? <Route {...route} component={() => <route.component title={route.title}/>} /> : <Route {...route} />)}
         </StaticRouter>
       </Provider>
     )
@@ -51,7 +62,8 @@ app.get('*', (req, res) => {
         </body>
       </html>
     `);
-  }).catch(() => {
+  }).catch((err) => {
+    // console.log('err')
     res.send('页面报错了')
   });
 });

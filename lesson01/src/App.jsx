@@ -18,14 +18,9 @@ import Home from '@/page/Home';
 // 改造成js的配置，才能获取组件
 export default [
   {
-    path: '/home',
-    component: Home,
-    // exact: true,
-    key: 'home',
-  },
-  {
     path: '/',
     component: Index,
+    title: "无始大帝",
     // loadData: Index.loadData,
     // exact: true,
     key: 'index',
@@ -35,5 +30,11 @@ export default [
     component: About,
     exact: true,
     key: 'about',
-  }
+  },
+  {
+    path: '/home',
+    component: Home,
+    exact: true,
+    key: 'home',
+  },
 ]

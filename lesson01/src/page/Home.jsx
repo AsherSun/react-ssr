@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
 import { getUserInfo } from '@/store/user';
 
-function User(props) {
+function Home(props) {
   const {title} = props.userinfo;
+  useEffect(() => {
+    if (!Object.keys(props.userinfo).length) {
+      props.getUserInfo();
+    }
+  }, []);
   return (
     <div>
       <h1>Home页面!!{title}</h1>
     </div>
   );
 }
-User.loadData = (store) => {
+Home.loadData = (store) => {
   return store.dispatch(getUserInfo())
 }
 export default connect(
@@ -18,4 +23,4 @@ export default connect(
     return ({userinfo: state.user.userinfo})
   },
   {getUserInfo}
-)(User);
+)(Home);

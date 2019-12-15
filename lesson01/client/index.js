@@ -10,7 +10,7 @@ const Page = <Provider store={getClientStore()}>
   <BrowserRouter>
     {/* <App/> */}
     <Header></Header>
-    { routes.map(route => <Route {...route} />)}
+    { routes.map(route => route.title ? <Route {...route} component={() => <route.component title={route.title}/>} /> : <Route {...route} />)}
   </BrowserRouter>
 </Provider>
 
