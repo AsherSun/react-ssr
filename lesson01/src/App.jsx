@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Index from '@/page/Index.jsx';
-import About from '@/page/About.jsx';
+import Index from '@/page/Index';
+import About from '@/page/About';
 
 function App() {
   return (

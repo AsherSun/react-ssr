@@ -1,6 +1,5 @@
 const path = require('path');
 const externals = require('webpack-node-externals');
-
 // 服务端webpack
 module.exports = {
   target: 'node',
@@ -31,6 +30,7 @@ module.exports = {
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
-    }
-  }
-}
+    },
+    extensions: ['.js', '.jsx'],
+  },
+};

@@ -1,8 +1,8 @@
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import express from 'express';
-import {StaticRouter} from 'react-router-dom';
-import App from '@/App.jsx';
+import { StaticRouter } from 'react-router-dom';
+import App from '@/App';
 
 const app = express();
 

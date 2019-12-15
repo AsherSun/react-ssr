@@ -1,6 +1,5 @@
 const path = require('path');
 
-// 服务端webpack
 module.exports = {
   mode: 'development',
   entry: './client/index.jsx',
@@ -27,7 +26,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-    }
-  }
+      '@': path.resolve(__dirname, 'src')
+    },
+    extensions: ['.js', '.jsx'],
+  },
 }
